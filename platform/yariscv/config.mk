@@ -67,4 +67,4 @@ FW_PAYLOAD_OFFSET=0x200000
 endif
 FW_PAYLOAD_ALIGN=0x1000
 # FW_PAYLOAD_PATH="path to next boot stage binary image file"
-# FW_PAYLOAD_FDT_ADDR=0x82200000
+FW_PAYLOAD_FDT_ADDR=$(shell printf "0x%X" $$(($(FW_TEXT_START) + 0x2200000)))
