@@ -308,6 +308,30 @@ int fdt_parse_gaisler_uart_node(void *fdt, int nodeoffset,
 	return 0;
 }
 
+int fdt_parse_litex_uart_node(void *fdt, int nodeoffset,
+				struct platform_uart_data *uart)
+{
+	int rc;
+	uint64_t reg_addr, reg_size;
+
+	if (nodeoffset < 0 || !uart || !fdt)
+		return SBI_ENODEV;
+
+	rc = fdt_get_node_addr_size(fdt, nodeoffset, 0,
+				    &reg_addr, &reg_size);
+	if (rc < 0 || !reg_addr || !reg_size)
+		return SBI_ENODEV;
+	uart->addr = reg_addr;
+
+    uart->freq = DEFAULT_UART_FREQ;
+    uart->baud = DEFAULT_UART_BAUD;
+  
+	uart->reg_shift	   = DEFAULT_UART_REG_SHIFT;
+	uart->reg_io_width = DEFAULT_GAISLER_UART_REG_IO_WIDTH;
+
+	return 0;
+}
+
 int fdt_parse_shakti_uart_node(void *fdt, int nodeoffset,
 			       struct platform_uart_data *uart)
 {
