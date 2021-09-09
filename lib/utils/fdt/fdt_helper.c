@@ -323,11 +323,11 @@ int fdt_parse_litex_uart_node(void *fdt, int nodeoffset,
 		return SBI_ENODEV;
 	uart->addr = reg_addr;
 
-    uart->freq = DEFAULT_UART_FREQ;
-    uart->baud = DEFAULT_UART_BAUD;
+	uart->freq = DEFAULT_UART_FREQ;
+	uart->baud = DEFAULT_UART_BAUD;
   
 	uart->reg_shift	   = DEFAULT_UART_REG_SHIFT;
-	uart->reg_io_width = DEFAULT_GAISLER_UART_REG_IO_WIDTH;
+	uart->reg_io_width = DEFAULT_UART_REG_IO_WIDTH;
 
 	return 0;
 }

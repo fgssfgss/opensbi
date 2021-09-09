@@ -25,8 +25,7 @@ static int serial_litex_init(void *fdt, int nodeoff,
 }
 
 static const struct fdt_match serial_litex_match[] = {
-	{ .compatible = "litex.uart0" },
-	{ .compatible = "litex.liteuart" },
+	{ .compatible = "litex,liteuart" },
 	{},
 };
 

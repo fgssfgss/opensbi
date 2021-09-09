@@ -26,7 +26,7 @@ static struct fdt_serial *serial_drivers[] = {
 	&fdt_serial_htif,
 	&fdt_serial_shakti,
 	&fdt_serial_gaisler,
-    &fdt_serial_litex
+	&fdt_serial_litex
 };
 
 static struct fdt_serial dummy = {
